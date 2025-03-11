@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+input {
+    padding: 8px;
+    width: 250px;
+    font-size: 16px;
+}
+
+button {
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    border: 1px solid #ddd;
+    max-width: 280px;
+    background: white;
+    position: absolute;
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+li:hover {
+    background: #f0f0f0;
+}
