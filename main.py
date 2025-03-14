@@ -4,7 +4,7 @@ from geocode import get_coordinates
 from weather import get_weather
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)  # Enabling CORS for all routes
 
 # Function to calculate surge price and tax
 def calculate_surge_price(base_price, temperature):
@@ -22,12 +22,14 @@ def calculate_surge_price(base_price, temperature):
     total_price = base_price + surge_price + tax
 
     return {
+        "temperature": temperature,
         "base_price": round(base_price, 2),
         "surge_price": round(surge_price, 2),
         "tax": round(tax, 2),
         "final_price": round(total_price, 2),
     }
 
+# Routing
 @app.route("/get-weather", methods=["POST"])
 def get_weather_api():
     data = request.json
