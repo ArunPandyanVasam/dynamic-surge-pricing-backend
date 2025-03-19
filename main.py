@@ -30,11 +30,6 @@ def calculate_surge_price(base_price, temperature):
     }
 
 # Routing
-@app.route('/')
-def home():
-    return "Welcome to Surge Pricing!"
-
-
 @app.route("/get-weather", methods=["POST"])
 def get_weather_api():
     data = request.json
