@@ -18,15 +18,17 @@ def calculate_surge_price(base_price, temperature):
         surge_percent = 0.00
 
     surge_price = base_price * surge_percent
+    total_price_before_tax = (base_price + surge_price)
     tax = (base_price + surge_price) * 0.10  # 10% tax
-    total_price = base_price + surge_price + tax
+    total_price_after_tax = base_price + surge_price + tax
 
     return {
         "temperature": temperature,
         "base_price": round(base_price, 2),
         "surge_price": round(surge_price, 2),
+        "final_price_before": round(total_price_before_tax, 2),
         "tax": round(tax, 2),
-        "final_price": round(total_price, 2),
+        "final_price_after": round(total_price_after_tax, 2),
     }
 
 # Routing
@@ -57,7 +59,8 @@ def get_weather_api():
         "base_price": price_details["base_price"],
         "surge_price": price_details["surge_price"],
         "tax": price_details["tax"],
-        "final_price": price_details["final_price"]
+        "final_price_before": price_details["final_price_before"],
+        "final_price_after": price_details["final_price_after"]
     })
 
     #return jsonify(price_details)
