@@ -12,10 +12,14 @@ def calculate_surge_price(base_price, temperature):
         surge_percent = 0.30
     elif 5 <= temperature < 15:
         surge_percent = 0.20
-    elif 15 <= temperature < 25:
+    elif 15 <= temperature < 20:
+        surge_percent = 0.10
+    elif 20 <= temperature <= 30:
+        surge_percent = 0.00
+    elif 30 < temperature < 40:
         surge_percent = 0.10
     else:
-        surge_percent = 0.00
+        surge_percent = 0.20
 
     surge_price = base_price * surge_percent
     total_price_before_tax = base_price + surge_price
