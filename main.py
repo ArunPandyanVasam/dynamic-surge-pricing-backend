@@ -18,7 +18,7 @@ def calculate_surge_price(base_price, temperature):
         surge_percent = 0.00
 
     surge_price = base_price * surge_percent
-    total_price_before_tax = (base_price + surge_price)
+    total_price_before_tax = base_price + surge_price
     tax = (base_price + surge_price) * 0.10  # 10% tax
     total_price_after_tax = base_price + surge_price + tax
 
