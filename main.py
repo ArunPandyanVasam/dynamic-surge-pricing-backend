@@ -48,9 +48,19 @@ def get_weather_api():
         return jsonify({"error": "Weather data not found"}), 500
 
     temperature = weather_data.get("temperature")
+    weather_description = weather_data.get("weather")
     price_details = calculate_surge_price(base_price, temperature)
 
-    return jsonify(price_details)
+    return jsonify({
+        "temperature": temperature,
+        "weather_description": weather_description,
+        "base_price": price_details["base_price"],
+        "surge_price": price_details["surge_price"],
+        "tax": price_details["tax"],
+        "final_price": price_details["final_price"]
+    })
+
+    #return jsonify(price_details)
 
 if __name__ == "__main__":
     app.run(debug=True)
